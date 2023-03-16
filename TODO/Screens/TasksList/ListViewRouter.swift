@@ -9,6 +9,7 @@ import UIKit
 
 protocol ListViewRouterProtocol {
     func showDetails(taskListDelegateService: TaskListDelegateService)
+    func showProfile(profileService: ProfileService)
 }
 
 final class ListViewRouter {
@@ -23,5 +24,10 @@ extension ListViewRouter: ListViewRouterProtocol {
     func showDetails(taskListDelegateService: TaskListDelegateService) {
         let controller = GridViewBuilder.build(taskListDelegateService: taskListDelegateService)
         viewController?.navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    func showProfile(profileService: ProfileService) {
+        let profileView = ProfileViewBuilder.build(profileService: profileService)
+        viewController?.present(profileView, animated: true)
     }
 }

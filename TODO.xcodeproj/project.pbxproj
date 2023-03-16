@@ -42,6 +42,15 @@
 		00F509DD29BD323200456EF1 /* DateCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F509DC29BD323200456EF1 /* DateCellView.swift */; };
 		00F509E029BDEB9500456EF1 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F509DF29BDEB9500456EF1 /* NotificationService.swift */; };
 		00F509EB29BE453A00456EF1 /* TaskListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F509EA29BE453A00456EF1 /* TaskListCellView.swift */; };
+		00F509F429C313C600456EF1 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F509F329C313C600456EF1 /* ProfileViewController.swift */; };
+		00F509F629C3144C00456EF1 /* ProfileViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F509F529C3144C00456EF1 /* ProfileViewPresenter.swift */; };
+		00F509F829C3148B00456EF1 /* ProfileViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F509F729C3148B00456EF1 /* ProfileViewBuilder.swift */; };
+		00F509FB29C3160200456EF1 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F509FA29C3160200456EF1 /* ProfileView.swift */; };
+		00F509FF29C325B800456EF1 /* TaskListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F509FE29C325B800456EF1 /* TaskListHeaderView.swift */; };
+		00F50A0229C3329F00456EF1 /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F50A0129C3329F00456EF1 /* UserDefaultsKey.swift */; };
+		00F50A0429C332BF00456EF1 /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F50A0329C332BF00456EF1 /* UserDefaultsService.swift */; };
+		00F50A0629C332DB00456EF1 /* UserDefaultsServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F50A0529C332DB00456EF1 /* UserDefaultsServiceProtocol.swift */; };
+		00F50A0829C3445E00456EF1 /* ProfileViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F50A0729C3445E00456EF1 /* ProfileViewRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +88,15 @@
 		00F509DC29BD323200456EF1 /* DateCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCellView.swift; sourceTree = "<group>"; };
 		00F509DF29BDEB9500456EF1 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		00F509EA29BE453A00456EF1 /* TaskListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListCellView.swift; sourceTree = "<group>"; };
+		00F509F329C313C600456EF1 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		00F509F529C3144C00456EF1 /* ProfileViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewPresenter.swift; sourceTree = "<group>"; };
+		00F509F729C3148B00456EF1 /* ProfileViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewBuilder.swift; sourceTree = "<group>"; };
+		00F509FA29C3160200456EF1 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		00F509FE29C325B800456EF1 /* TaskListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListHeaderView.swift; sourceTree = "<group>"; };
+		00F50A0129C3329F00456EF1 /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
+		00F50A0329C332BF00456EF1 /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
+		00F50A0529C332DB00456EF1 /* UserDefaultsServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsServiceProtocol.swift; sourceTree = "<group>"; };
+		00F50A0729C3445E00456EF1 /* ProfileViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +148,7 @@
 		00AD2A1529B09F44007DA5AA /* TODO */ = {
 			isa = PBXGroup;
 			children = (
+				00F50A0029C3327A00456EF1 /* UserDefaultsSerice */,
 				00F509DE29BDEB6300456EF1 /* NotificationService */,
 				007CA34B29B610F000268D0D /* Database */,
 				00AD2A4129B1E824007DA5AA /* Resources */,
@@ -149,6 +168,7 @@
 		00AD2A2A29B0A471007DA5AA /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				00F509F229C3139F00456EF1 /* Profile */,
 				00AD8B8729B9EB7100210972 /* TasksList */,
 				00AD8B7D29B9D9ED00210972 /* TasksGrid */,
 				00AD2A4429B1EB76007DA5AA /* TaskDetails */,
@@ -250,6 +270,7 @@
 		00AD8B9029B9F21400210972 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				00F509FC29C3246F00456EF1 /* SubViews */,
 				00AD8B9129B9F22200210972 /* CellViews */,
 			);
 			path = Views;
@@ -269,6 +290,44 @@
 				00F509DF29BDEB9500456EF1 /* NotificationService.swift */,
 			);
 			path = NotificationService;
+			sourceTree = "<group>";
+		};
+		00F509F229C3139F00456EF1 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				00F509F929C315F100456EF1 /* Views */,
+				00F509F729C3148B00456EF1 /* ProfileViewBuilder.swift */,
+				00F509F329C313C600456EF1 /* ProfileViewController.swift */,
+				00F509F529C3144C00456EF1 /* ProfileViewPresenter.swift */,
+				00F50A0729C3445E00456EF1 /* ProfileViewRouter.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		00F509F929C315F100456EF1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				00F509FA29C3160200456EF1 /* ProfileView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		00F509FC29C3246F00456EF1 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				00F509FE29C325B800456EF1 /* TaskListHeaderView.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
+		00F50A0029C3327A00456EF1 /* UserDefaultsSerice */ = {
+			isa = PBXGroup;
+			children = (
+				00F50A0129C3329F00456EF1 /* UserDefaultsKey.swift */,
+				00F50A0329C332BF00456EF1 /* UserDefaultsService.swift */,
+				00F50A0529C332DB00456EF1 /* UserDefaultsServiceProtocol.swift */,
+			);
+			path = UserDefaultsSerice;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -356,10 +415,16 @@
 				007CA34F29B679E500268D0D /* DatabaseModels.swift in Sources */,
 				007CA34D29B6111200268D0D /* DatabaseService.swift in Sources */,
 				00F509E029BDEB9500456EF1 /* NotificationService.swift in Sources */,
+				00F509F629C3144C00456EF1 /* ProfileViewPresenter.swift in Sources */,
+				00F50A0629C332DB00456EF1 /* UserDefaultsServiceProtocol.swift in Sources */,
 				00AD8B8B29B9EC1000210972 /* ListViewBuilder.swift in Sources */,
+				00F509FF29C325B800456EF1 /* TaskListHeaderView.swift in Sources */,
 				007CA34529B1F14800268D0D /* TaskDetailView.swift in Sources */,
 				00AD2A1B29B09F44007DA5AA /* ViewController.swift in Sources */,
 				00F509EB29BE453A00456EF1 /* TaskListCellView.swift in Sources */,
+				00F509F829C3148B00456EF1 /* ProfileViewBuilder.swift in Sources */,
+				00F50A0429C332BF00456EF1 /* UserDefaultsService.swift in Sources */,
+				00F509F429C313C600456EF1 /* ProfileViewController.swift in Sources */,
 				00AD2A4029B1E7F6007DA5AA /* Models.swift in Sources */,
 				00AD8B7829B9D92D00210972 /* GridViewBuilder.swift in Sources */,
 				00AD8B7629B9D87100210972 /* GridViewController.swift in Sources */,
@@ -368,7 +433,9 @@
 				00AD8B7A29B9D98B00210972 /* GridViewPresenter.swift in Sources */,
 				00AD2A4629B1EBCF007DA5AA /* TaskDetailViewController.swift in Sources */,
 				00AD2A4829B1EC19007DA5AA /* TaskDetailBuilder.swift in Sources */,
+				00F509FB29C3160200456EF1 /* ProfileView.swift in Sources */,
 				00AD2A4329B1E843007DA5AA /* Resources.swift in Sources */,
+				00F50A0229C3329F00456EF1 /* UserDefaultsKey.swift in Sources */,
 				007CA35229B7554500268D0D /* ModelsDTO.swift in Sources */,
 				00AD8B7C29B9D99B00210972 /* GridViewRouter.swift in Sources */,
 				00AD8B8629B9DA3700210972 /* HeaderView.swift in Sources */,
@@ -380,6 +447,7 @@
 				00AD8B8329B9DA2200210972 /* CellView.swift in Sources */,
 				00AD8B8929B9EBCC00210972 /* ListViewController.swift in Sources */,
 				00AD8B8F29B9ECD400210972 /* ListViewRouter.swift in Sources */,
+				00F50A0829C3445E00456EF1 /* ProfileViewRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

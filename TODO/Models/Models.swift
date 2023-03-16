@@ -48,6 +48,29 @@ extension CellModel: Comparable {
     }
 }
 
+//MARK: - Profile
+struct ProfileModel: Codable {
+    var name: String?
+    var imageURL: String?
+//    let color: Colors
+    
+    private enum CodingKeys: String, CodingKey {
+        case name = "name"
+        case imageURL = "imageURL"
+    }
+    
+    init() {
+        self.name = ""
+        self.imageURL = ""
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.name = try? container.decodeIfPresent(String.self, forKey: .name) ?? ""
+        self.imageURL = try? container.decodeIfPresent(String.self, forKey: .imageURL) ?? ""
+    }
+}
+
 //MARK: - Delegates
 struct TaskDelegateService {
     let taskModelDTO: TaskModelDTO
@@ -57,6 +80,11 @@ struct TaskDelegateService {
 struct TaskListDelegateService {
     let taskListModelDTO: TaskListModelDTO
     let closure: (UUID) -> (Void)
+}
+
+struct ProfileService {
+    var profileModel: ProfileModel?
+    let closure: (ProfileModel) -> (Void)
 }
 
 //MARK: - Enums

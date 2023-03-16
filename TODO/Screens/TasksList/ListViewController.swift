@@ -12,6 +12,7 @@ import TinyConstraints
 protocol ListViewControllerProtocol: AnyObject {
     func loadData(items: [TaskListModelDTO])
     func updateData(item: TaskListModelDTO)
+    func loadProfile(profileModel: ProfileModel)
 }
 
 final class ListViewController: UIViewController {
@@ -21,6 +22,7 @@ final class ListViewController: UIViewController {
     
     //MARK: - Private properties
     private let backView = UIView()
+    private let taskListHeaderView = TaskListHeaderView()
     private let tableView = UITableView()
     
     private var dataSource: [TaskListModelDTO] = [
@@ -55,12 +57,17 @@ final class ListViewController: UIViewController {
     
     private func addSubviews() {
         view.addSubview(backView)
+        backView.addSubview(taskListHeaderView)
         backView.addSubview(tableView)
     }
     
     private func setupConstraints() {
         backView.edgesToSuperview(usingSafeArea: true)
-        tableView.edgesToSuperview()
+        
+        taskListHeaderView.edgesToSuperview(excluding: .bottom, insets: .top(3))
+        taskListHeaderView.bottomToTop(of: tableView, offset: -3)
+        taskListHeaderView.heightToSuperview(multiplier: 0.07)
+        tableView.edgesToSuperview(excluding: .top)
     }
     
     private func setupView() {
@@ -69,6 +76,9 @@ final class ListViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "New", image: nil, target: self, action: #selector(createTask))
         
         backView.backgroundColor = .clear
+        taskListHeaderView.buttonAction = {
+            self.presenter?.didHeaderTapped()
+        }
     }
     
     private func setupTableView() {
@@ -194,6 +204,10 @@ extension ListViewController: ListViewControllerProtocol {
     
     func loadData(items: [TaskListModelDTO]) {
         dataSource.append(contentsOf: items)
+    }
+    
+    func loadProfile(profileModel: ProfileModel) {
+        taskListHeaderView.configure(with: profileModel)
     }
 }
 
