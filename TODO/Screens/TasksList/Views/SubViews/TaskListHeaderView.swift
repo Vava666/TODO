@@ -88,5 +88,6 @@ final class TaskListHeaderView: UIView {
     //MARK: - Public func
     func configure(with profileModel: ProfileModel) {
         nameLabel.text = profileModel.name
+        photoView.backgroundColor = profileModel.color
     }
 }

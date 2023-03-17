@@ -51,6 +51,7 @@
 		00F50A0429C332BF00456EF1 /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F50A0329C332BF00456EF1 /* UserDefaultsService.swift */; };
 		00F50A0629C332DB00456EF1 /* UserDefaultsServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F50A0529C332DB00456EF1 /* UserDefaultsServiceProtocol.swift */; };
 		00F50A0829C3445E00456EF1 /* ProfileViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F50A0729C3445E00456EF1 /* ProfileViewRouter.swift */; };
+		00F50A0B29C4A61700456EF1 /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F50A0A29C4A61700456EF1 /* ColorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,6 +98,7 @@
 		00F50A0329C332BF00456EF1 /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
 		00F50A0529C332DB00456EF1 /* UserDefaultsServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsServiceProtocol.swift; sourceTree = "<group>"; };
 		00F50A0729C3445E00456EF1 /* ProfileViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewRouter.swift; sourceTree = "<group>"; };
+		00F50A0A29C4A61700456EF1 /* ColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -307,6 +309,7 @@
 		00F509F929C315F100456EF1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				00F50A0929C4A5FE00456EF1 /* SubViews */,
 				00F509FA29C3160200456EF1 /* ProfileView.swift */,
 			);
 			path = Views;
@@ -328,6 +331,14 @@
 				00F50A0529C332DB00456EF1 /* UserDefaultsServiceProtocol.swift */,
 			);
 			path = UserDefaultsSerice;
+			sourceTree = "<group>";
+		};
+		00F50A0929C4A5FE00456EF1 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				00F50A0A29C4A61700456EF1 /* ColorView.swift */,
+			);
+			path = SubViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -448,6 +459,7 @@
 				00AD8B8929B9EBCC00210972 /* ListViewController.swift in Sources */,
 				00AD8B8F29B9ECD400210972 /* ListViewRouter.swift in Sources */,
 				00F50A0829C3445E00456EF1 /* ProfileViewRouter.swift in Sources */,
+				00F50A0B29C4A61700456EF1 /* ColorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

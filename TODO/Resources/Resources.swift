@@ -8,12 +8,20 @@
 import UIKit
 
 //MARK: - user
-enum Colors {
-    static let Blue = UIColor(named: "Blue")
-    static let Green = UIColor(named: "Green")
-    static let LightBlue = UIColor(named: "LightBlue")
-    static let Pink = UIColor(named: "Pink")
-    static let Red = UIColor(named: "Red")
+enum Colors: String, CaseIterable {
+    case blue = "Blue"
+    case lightBlue = "LightBlue"
+    case green = "Green"
+    case pink = "Pink"
+    case red = "Red"
+    
+    var color: UIColor {
+        return UIColor(named: self.rawValue) ?? .clear
+    }
+    
+    static var allCases: [Colors] {
+        return [.blue, .red, .green, .pink]
+    }
 }
 
 //MARK: - main

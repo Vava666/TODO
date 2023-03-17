@@ -32,6 +32,12 @@ final class ProfileView: UIView {
         return stack
     }()
     private let saveButton = UIButton()
+    private var color: Colors? {
+        didSet {
+            guard let color = color else { return }
+            image.backgroundColor = color.color
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -43,6 +49,7 @@ final class ProfileView: UIView {
     private func setup() {
         addSubviews()
         addArrangedSubviews()
+        addCollorSubviews()
         setupConstraints()
         setupViews()
         setupButtons()
@@ -60,20 +67,35 @@ final class ProfileView: UIView {
         vStack.addArrangedSubview(colorStack)
     }
     
+    private func addCollorSubviews() {
+        var array: [UIView] = []
+        Colors.allCases.forEach({ array.append(createColorView($0)) })
+        array.forEach({ colorStack.addArrangedSubview($0) })
+    }
+    
+    private func createColorView(_ color: Colors) -> UIView {
+        let view = ColorView()
+        view.color = color
+        view.closure = { [weak self] color in
+            self?.color = color
+        }
+        return view
+    }
+    
     private func setupConstraints() {
         backView.edgesToSuperview(usingSafeArea: true)
         content.edgesToSuperview(excluding: .top)
         content.heightToSuperview(multiplier: 0.4)
         
         image.centerXToSuperview()
-        image.topToSuperview(offset: 6)
+        image.topToSuperview(offset: 12)
         image.height(Constants.width / 5)
         image.widthToHeight(of: image)
         
         vStack.leadingToSuperview(offset: 16)
-        vStack.trailingToSuperview(offset: -16)
+        vStack.trailingToSuperview(offset: 16)
         vStack.topToBottom(of: image)
-        vStack.bottomToTop(of: saveButton)
+        vStack.bottomToTop(of: saveButton, offset: -8)
         
         saveButton.centerXToSuperview()
         saveButton.bottomToSuperview(offset: -16)
@@ -112,11 +134,15 @@ final class ProfileView: UIView {
     func saveDidTapped() {
         var profileModel = ProfileModel()
         profileModel.name = name.text ?? ""
+        if let color = self.color {
+            profileModel.colorName = color.rawValue
+        }
         closure?(profileModel)
     }
     
     func configure(with profileModel: ProfileModel) {
         name.text = profileModel.name
+        image.backgroundColor = profileModel.color
     }
 }
 

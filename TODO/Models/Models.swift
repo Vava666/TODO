@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 //MARK: - CellModel
 struct CellModel {
@@ -52,22 +53,28 @@ extension CellModel: Comparable {
 struct ProfileModel: Codable {
     var name: String?
     var imageURL: String?
-//    let color: Colors
+    var colorName: String?
+    var color: UIColor {
+        return UIColor(named: colorName ?? "") ?? .clear
+    }
     
     private enum CodingKeys: String, CodingKey {
         case name = "name"
         case imageURL = "imageURL"
+        case colorName = "colorName"
     }
     
     init() {
         self.name = ""
         self.imageURL = ""
+        self.colorName = ""
     }
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.name = try? container.decodeIfPresent(String.self, forKey: .name) ?? ""
         self.imageURL = try? container.decodeIfPresent(String.self, forKey: .imageURL) ?? ""
+        self.colorName = try? container.decodeIfPresent(String.self, forKey: .colorName) ?? ""
     }
 }
 

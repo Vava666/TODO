@@ -80,11 +80,11 @@ final class CellView: UICollectionViewCell {
     
     private func closeTask(_ closed: Bool) {
         if closed {
-            backView.backgroundColor = Colors.Blue
+            backView.backgroundColor = Colors.blue.color
             checkView.tintColor = .systemGreen
         } else {
-            backView.backgroundColor = Colors.LightBlue
-            checkView.tintColor = Colors.LightBlue
+            backView.backgroundColor = Colors.lightBlue.color
+            checkView.tintColor = Colors.lightBlue.color
         }
     }
     
