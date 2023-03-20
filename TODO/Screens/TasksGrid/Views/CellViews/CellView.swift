@@ -22,6 +22,7 @@ final class CellView: UICollectionViewCell {
     private let dateView = DateCellView()
     private let checkView = UIImageView()
     private let taskDescription = UILabel()
+    private var mainColor: UIColor = Colors.blue.color
     
     //MARK: - Init
     override init(frame: CGRect) {
@@ -80,16 +81,17 @@ final class CellView: UICollectionViewCell {
     
     private func closeTask(_ closed: Bool) {
         if closed {
-            backView.backgroundColor = Colors.blue.color
+            backView.backgroundColor = Colors.lightBlue.color
             checkView.tintColor = .systemGreen
         } else {
-            backView.backgroundColor = Colors.lightBlue.color
-            checkView.tintColor = Colors.lightBlue.color
+            backView.backgroundColor = mainColor
+            checkView.tintColor = mainColor
         }
     }
     
     //MARK: - Config
-    func configure(with data: TaskModelDTO) {
+    func configure(with data: TaskModelDTO, color: UIColor) {
+        mainColor = color
         taskDescription.text = data.taskDescription
         dateView.date = data.date
         switch data.condition {

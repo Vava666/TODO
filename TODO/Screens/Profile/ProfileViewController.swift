@@ -32,6 +32,7 @@ final class ProfileViewController: UIViewController {
         addSubviews()
         setupConstraints()
         setupViews()
+        setupObservers()
     }
     
     private func addSubviews() {
@@ -48,6 +49,29 @@ final class ProfileViewController: UIViewController {
         profileView.closure = { [weak self] profileModel in
             self?.presenter?.profileDidSaved(profileModel: profileModel)
         }
+    }
+    
+    //MARK: - Observers
+    private func setupObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    //MARK: - @obj
+    @objc
+    private func keyboardWillShow(_ notification: Notification) {
+        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardRectangle = keyboardFrame.cgRectValue
+            let keyboardHeight = keyboardRectangle.height
+            if view.frame.origin.y == .zero {
+                view.frame.origin.y -= keyboardHeight
+            }
+        }
+    }
+    
+    @objc
+    private func keyboardWillHide() {
+        view.frame.origin.y = .zero
     }
 }
 

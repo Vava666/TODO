@@ -73,6 +73,10 @@ extension GridViewPresenter: GridViewPresenterProtocol {
         }
         
         controller?.loadData(items: array)
+        
+        if let color = taskListDelegateService.profileModel?.color {
+            controller?.configure(color: color)
+        }
     }
     
     func addNewTask(index: Int) {

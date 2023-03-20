@@ -115,6 +115,7 @@ final class ProfileView: UIView {
         
         name.font = .systemFont(ofSize: 24, weight: .semibold)
         name.placeholder = "Enter name"
+        name.delegate = self
         
         label.text = "choose your favorite color"
         label.font = .systemFont(ofSize: 18)
@@ -149,5 +150,13 @@ final class ProfileView: UIView {
 extension ProfileView {
     enum Constants {
         static let width = UIScreen.main.bounds.width
+    }
+}
+
+//MARK: - Delegate
+extension ProfileView: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        endEditing(true)
+        return false
     }
 }

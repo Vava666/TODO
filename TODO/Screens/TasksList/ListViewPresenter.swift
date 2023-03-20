@@ -64,7 +64,7 @@ extension ListViewPresenter: ListViewPresenterProtocol {
     }
     
     func showDetails(taskListModelDTO: TaskListModelDTO) {
-        let delegate = TaskListDelegateService(taskListModelDTO: taskListModelDTO) { [weak self] id in
+        let delegate = TaskListDelegateService(taskListModelDTO: taskListModelDTO, profileModel: profileModel) { [weak self] id in
             if let taskListModel = self?.database.getObject(with: TaskListModel.self, by: id) {
                 let taskListModelDTO = TaskListModelDTO(taskListModel)
                 self?.controller?.updateData(item: taskListModelDTO)

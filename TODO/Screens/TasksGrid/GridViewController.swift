@@ -10,6 +10,7 @@ import TinyConstraints
 
 //MARK: - Protocols
 protocol GridViewControllerProtocol: AnyObject {
+    func configure(color: UIColor)
     func loadData(items: [TaskModelDTO])
     func updateData(with taskModelDTO: TaskModelDTO, on index: Int)
     func deleteData(on index: Int)
@@ -35,6 +36,7 @@ final class GridViewController: UIViewController {
         let collection = UICollectionView(frame: .zero, collectionViewLayout: collectionLayout)
         return collection
     }()
+    private var mainColor: UIColor = .clear
     
     //MARK: - Lifecycle
     override func loadView() {
@@ -193,6 +195,10 @@ final class GridViewController: UIViewController {
 //MARK: - Protocol
 extension GridViewController: GridViewControllerProtocol {
     
+    func configure(color: UIColor) {
+        mainColor = color
+    }
+    
     func loadData(items: [TaskModelDTO]) {
         let cellData = items.compactMap { dto in
             CellModel(type: .task(dto))
@@ -256,7 +262,7 @@ extension GridViewController: UICollectionViewDataSource {
         switch data.type {
         case .task(let taskModelDTO):
             let cell = collection.dequeueReusableCell(withReuseIdentifier: Constants.reuseIdentifier, for: indexPath) as! CellView
-            cell.configure(with: taskModelDTO)
+            cell.configure(with: taskModelDTO, color: mainColor)
             return cell
         case .empty:
             let cell = collection.dequeueReusableCell(withReuseIdentifier: Constants.reuseIdentifierEmpty, for: indexPath) as! EmptyCellView

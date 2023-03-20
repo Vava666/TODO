@@ -86,6 +86,7 @@ struct TaskDelegateService {
 
 struct TaskListDelegateService {
     let taskListModelDTO: TaskListModelDTO
+    let profileModel: ProfileModel?
     let closure: (UUID) -> (Void)
 }
 
